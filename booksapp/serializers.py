@@ -66,3 +66,11 @@ class BooksUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = '__all__'
+
+class BooksDeleteSerializer(serializers.ModelSerializer):
+    """Удаление созданной книги"""
+
+    class Meta:
+        model = Book
+        fields = '__all__'
+
