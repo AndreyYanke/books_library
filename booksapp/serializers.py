@@ -11,7 +11,6 @@ class BooksListSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-
 class AuthorListSerializer(serializers.ModelSerializer):
     """Вывода автора"""
 
@@ -43,3 +42,19 @@ class GenreDetailSerializer(serializers.ModelSerializer):
         model = Genre
         fields = '__all__'
 
+
+class BooksDetailSerializer(serializers.ModelSerializer):
+    authors = AuthorDetailSerializer(read_only=True, many=True)
+    genre = GenreDetailSerializer(read_only=True, many=True)
+
+    class Meta:
+        model = Book
+        fields = '__all__'
+
+
+class BooksCreateSerializer(serializers.ModelSerializer):
+    """Создание книг"""
+
+    class Meta:
+        model = Book
+        fields = '__all__'

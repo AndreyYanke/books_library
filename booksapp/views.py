@@ -3,6 +3,8 @@ from rest_framework import generics
 from booksapp.models import Book, Author, Genre
 from booksapp.serializers import (
     BooksListSerializer,
+    BooksDetailSerializer,
+    BooksCreateSerializer,
     AuthorListSerializer,
     AuthorDetailSerializer,
     GenreListSerializer,
@@ -14,6 +16,18 @@ class BooksListView(generics.ListAPIView):
     """Вывод списка книг"""
     queryset = Book.objects.all()
     serializer_class = BooksListSerializer
+
+
+class BooksDetailView(generics.RetrieveAPIView):
+    """Вывод полного списка книг с описанием, авторами и жанрами"""
+    queryset = Book.objects.all()
+    serializer_class = BooksDetailSerializer
+
+
+class BooksCreateView(generics.CreateAPIView):
+    """Создание книг"""
+    queryset = Book.objects.all()
+    serializer_class = BooksCreateSerializer
 
 
 class AuthorListView(generics.ListAPIView):
