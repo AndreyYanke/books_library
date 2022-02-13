@@ -24,7 +24,6 @@ class BooksModelSerializer(serializers.ModelSerializer):
     authors = AuthorDetailSerializer(read_only=True, many=True)
     genre = GenreDetailSerializer(read_only=True, many=True)
 
-
     class Meta:
         model = Book
         fields = '__all__'

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="GET">
+    {{ filter.form }}
+    <button class="btn btn-primary">Найти</button>
+</form>
+{% for book in filter.qs %}
+    {{ book.name }}
+    {% for author in book.authors.all %}
+        {{ author.first_name }}
+        {{ author.last_name }}
+    {% endfor %}
+    <br>
+{% endfor %}
+</body>
+</html>
