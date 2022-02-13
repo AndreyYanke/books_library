@@ -31,17 +31,17 @@ class BooksCreateView(generics.CreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BooksCreateSerializer
 
-class BooksUpdateView(generics.UpdateAPIView):
+
+class BooksUpdateView(generics.RetrieveUpdateAPIView):
     """Редактирование созданной книг"""
     queryset = Book.objects.all()
     serializer_class = BooksUpdateSerializer
+
 
 class BooksDeleteView(generics.RetrieveDestroyAPIView):
     """Удаление созданной книг"""
     queryset = Book.objects.all()
     serializer_class = BooksDeleteSerializer
-
-
 
 
 class AuthorListView(generics.ListAPIView):
