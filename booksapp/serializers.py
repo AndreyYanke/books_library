@@ -58,3 +58,11 @@ class BooksCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = '__all__'
+
+
+class BooksUpdateSerializer(serializers.ModelSerializer):
+    """Редактирование созданной книги"""
+
+    class Meta:
+        model = Book
+        fields = '__all__'

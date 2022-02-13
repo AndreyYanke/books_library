@@ -5,6 +5,7 @@ from booksapp.serializers import (
     BooksListSerializer,
     BooksDetailSerializer,
     BooksCreateSerializer,
+    BooksUpdateSerializer,
     AuthorListSerializer,
     AuthorDetailSerializer,
     GenreListSerializer,
@@ -28,6 +29,11 @@ class BooksCreateView(generics.CreateAPIView):
     """Создание книг"""
     queryset = Book.objects.all()
     serializer_class = BooksCreateSerializer
+
+class BooksUpdateView(generics.UpdateAPIView):
+    """Редактирование созданной книг"""
+    queryset = Book.objects.all()
+    serializer_class = BooksUpdateSerializer
 
 
 class AuthorListView(generics.ListAPIView):
