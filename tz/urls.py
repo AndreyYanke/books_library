@@ -23,7 +23,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('rest_framework.urls')),
-    path('api/books', include('booksapp.urls')),
+    path('api/books/', include('booksapp.urls')),
 ]
 
 if settings.DEBUG:
