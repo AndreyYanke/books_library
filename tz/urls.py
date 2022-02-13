@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
+from authapp.views import CreateUserAPIView
 from booksapp.views import BooksModelViewSet
 
 router = DefaultRouter()
@@ -26,9 +27,10 @@ router.register('books', BooksModelViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/create_user/', CreateUserAPIView.as_view()),
+    path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
     path('__debug__/', include('debug_toolbar.urls')),
-    # path('api/books/', include('booksapp.urls')),
 ]
 
 if settings.DEBUG:
