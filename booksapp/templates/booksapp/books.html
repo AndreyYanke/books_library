@@ -11,9 +11,13 @@
 </form>
 {% for book in filter.qs %}
     {{ book.name }}
+    {% if book.image %}
+        <img width="70" src="{{ book.image.url }}" alt="partner_image">
+    {% endif %}
     {% for author in book.authors.all %}
         {{ author.first_name }}
         {{ author.last_name }}
+        {{ author.birthday_year }}
     {% endfor %}
     <br>
 {% endfor %}
